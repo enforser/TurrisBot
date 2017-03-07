@@ -1,3 +1,26 @@
-"scripts": {
-    "start": "supervisor core.js"
+{
+  "name": "turrisbot",
+  "version": "1.0.0",
+  "description": "A reddit bot",
+  "main": "core.js",
+  "dependencies": {
+    "date-and-time": "^0.4.0",
+    "node-datetime": "^1.0.0",
+    "snoowrap": "^1.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "supervisor core.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandm4s/TurrisBot.git"
+  },
+  "author": "Matthew Fors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandm4s/TurrisBot/issues"
+  },
+  "homepage": "https://github.com/mandm4s/TurrisBot#readme"
 }
