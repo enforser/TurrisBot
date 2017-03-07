@@ -1,0 +1,3 @@
+"scripts": {
+    "start": "supervisor core.js"
+}
