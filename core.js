@@ -45,7 +45,7 @@ var run = function() {
 	makePost(link);
       }
     }
-    setTimeout(run, 60000 * 1 / 20); // 1 minute == 60000
+    setTimeout(run, 60000 * 1); // 1 minute == 60000
   })
 }
 
@@ -70,23 +70,18 @@ var makePost = function(link) {
   var id = link.split("/")[6]; // Get ID from link 
   var submission = client.getSubmission(id);
   submission.title.then(function(title) {
+			  var title = titleMaker(title);
                           var dt = dateTime.create();
                           var date = dt.format('d/m/Y');
-                          client.getSubreddit('valentine96_hocky')
+                          client.getSubreddit('OttawaSenators') // For testing purposes '/r/valentine96_hocky'.
                             .submitLink({title: title, url: link}).then(console.log);
                         });
 }
 
-// Makes post to subreddit 
-var makePostHelper = function(link, title) {
-  var dt = dateTime.create();
-  var date = dt.format('d/m/Y');
-  var body = "Welcome to the Game Thread for " + date + "\n\n" +
-             "[Follow this link to the /r/hockey game thread.]("
-             + link + ")\n\n"; 
-  console.log(body);
-  //client.getSubreddit('valentine96_hocky').submitSelfpost({title: title, text: body}).then(console.log);
-  client.getSubreddit('valentine96_hocky').submitLink({title: title, url: link}).then(console.log);
+var titleMaker = function(title) {
+  title = "[Game Thread]".concat(title.split("Game Thread:").pop());
+  
+  return title;
 }
 
 // Parse game thread link from message body, returns null if link does not exist. 
